@@ -1,4 +1,3 @@
-import 'package:example/row_column/latihan/latihanTiga.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,12 +12,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("Flutter App"),
-          backgroundColor: Colors.amber,
-          centerTitle: true,
-        ),
-        body: LatihanTiga(),
+        backgroundColor: Colors.blue,
+        appBar: AppBar(title: Text("Hello Flutter"), centerTitle: true),
+        body: Center(child: Text("Hello Teguh")),
       ),
     );
   }
