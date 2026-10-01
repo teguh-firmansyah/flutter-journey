@@ -1,3 +1,4 @@
+import 'package:example/Sized_Expanded_Stack/latihan/LatihanDua.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,11 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: Colors.blue,
-        appBar: AppBar(title: Text("Hello Flutter"), centerTitle: true),
-        body: Center(child: Text("Hello Teguh")),
-      ),
+      home: Scaffold(backgroundColor: Colors.white, body: LatihanDua()),
     );
   }
 }

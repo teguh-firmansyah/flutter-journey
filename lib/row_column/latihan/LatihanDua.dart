@@ -37,6 +37,7 @@ class LatihanDua extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                SizedBox(height: 5),
                 Text(
                   "Kelas: XII RPL 1",
                   style: TextStyle(
@@ -44,11 +45,27 @@ class LatihanDua extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                SizedBox(height: 5),
                 Text(
                   "NISN: 008735652",
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 5),
+                SizedBox(
+                  width: 150,
+                  height: 25,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Lihat Detail",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red,
+                      ),
+                    ),
                   ),
                 ),
               ],

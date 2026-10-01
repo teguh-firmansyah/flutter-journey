@@ -54,6 +54,7 @@ class LatihanSatu extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                SizedBox(height: 5),
                 Text(
                   "Kelas: XII RPL 1",
                   style: TextStyle(
@@ -61,6 +62,7 @@ class LatihanSatu extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                SizedBox(height: 5),
                 Text(
                   "NISN: 008735652",
                   style: TextStyle(
