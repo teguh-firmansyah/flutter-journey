@@ -6,8 +6,14 @@ class RowWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [Text("Hello 1!"), Text("Hello 2!"), Text("Hello 3!")],
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Container(height: 100, width: 50, color: Colors.yellow),
+        Container(height: 200, width: 50, color: Colors.red),
+        Container(height: 150, width: 50, color: Colors.green),
+        Container(height: 50, width: 50, color: Colors.orange),
+      ],
     );
   }
 }

@@ -6,15 +6,13 @@ class ColumnWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text("Column 1"),
-        Text("Column 2"),
-        Text("Column 3"),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [Text("Row 1"), Text("Row 2")],
-        ),
+        Container(width: 100, height: 50, color: Colors.yellow),
+        Container(width: 200, height: 50, color: Colors.red),
+        Container(width: 150, height: 50, color: Colors.green),
+        Container(width: 50, height: 50, color: Colors.orange),
       ],
     );
   }
