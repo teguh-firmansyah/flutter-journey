@@ -18,6 +18,14 @@ class MyApp extends StatelessWidget {
       Colors.purple,
     ];
 
+    final List<Widget> myList = List.generate(
+      100,
+      (index) => Text(
+        "${index + 1}",
+        style: TextStyle(fontSize: 20 + double.parse(index.toString())),
+      ),
+    );
+
     return MaterialApp(
       title: 'Flutter App',
       debugShowCheckedModeBanner: false,
@@ -34,15 +42,7 @@ class MyApp extends StatelessWidget {
           width: 300,
           height: 300,
           color: Colors.redAccent,
-          child: ListView.separated(
-            itemCount: myColor.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Container(width: 200, height: 200, color: myColor[index]);
-            },
-            separatorBuilder: (context, index) {
-              return Divider(color: Colors.black);
-            },
-          ),
+          child: ListView(children: myList),
         ),
       ),
     );
