@@ -9,11 +9,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Container> myContainer = [
-      Container(width: 200, height: 200, color: Colors.yellow),
-      Container(width: 200, height: 200, color: Colors.blue),
-      Container(width: 200, height: 200, color: Colors.pink),
-      Container(width: 200, height: 200, color: Colors.black),
+    final List<Color> myColor = [
+      Colors.yellow,
+      Colors.red,
+      Colors.green,
+      Colors.blue,
+      Colors.orange,
+      Colors.purple,
     ];
 
     return MaterialApp(
@@ -32,9 +34,11 @@ class MyApp extends StatelessWidget {
           width: 300,
           height: 300,
           color: Colors.redAccent,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: myContainer,
+          child: ListView.builder(
+            itemCount: myColor.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Container(width: 200, height: 200, color: myColor[index]);
+            },
           ),
         ),
       ),
