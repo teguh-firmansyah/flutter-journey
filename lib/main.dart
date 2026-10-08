@@ -34,10 +34,13 @@ class MyApp extends StatelessWidget {
           width: 300,
           height: 300,
           color: Colors.redAccent,
-          child: ListView.builder(
+          child: ListView.separated(
             itemCount: myColor.length,
             itemBuilder: (BuildContext context, int index) {
               return Container(width: 200, height: 200, color: myColor[index]);
+            },
+            separatorBuilder: (context, index) {
+              return Divider(color: Colors.black);
             },
           ),
         ),
