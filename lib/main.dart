@@ -1,4 +1,3 @@
-import 'package:example/row_column/RowWidget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,22 +9,34 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Container> myContainer = [
+      Container(width: 200, height: 200, color: Colors.yellow),
+      Container(width: 200, height: 200, color: Colors.blue),
+      Container(width: 200, height: 200, color: Colors.pink),
+      Container(width: 200, height: 200, color: Colors.black),
+    ];
+
     return MaterialApp(
+      title: 'Flutter App',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text(
-            "Hi Teguh!!",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
+            "Hi Teguh!",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
-          centerTitle: true,
           backgroundColor: Colors.blue,
+          centerTitle: true,
         ),
-        body: RowWidget(),
+        body: Container(
+          width: 300,
+          height: 300,
+          color: Colors.redAccent,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: myContainer,
+          ),
+        ),
       ),
     );
   }
