@@ -1,3 +1,4 @@
+import 'package:example/list_grid_singlechild/latihan/ArticleList.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,23 +10,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Color> myColor = [
-      Colors.yellow,
-      Colors.red,
-      Colors.green,
-      Colors.blue,
-      Colors.orange,
-      Colors.purple,
-    ];
-
-    final List<Widget> myList = List.generate(
-      100,
-      (index) => Text(
-        "${index + 1}",
-        style: TextStyle(fontSize: 20 + double.parse(index.toString())),
-      ),
-    );
-
     return MaterialApp(
       title: 'Flutter App',
       debugShowCheckedModeBanner: false,
@@ -38,12 +22,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.blue,
           centerTitle: true,
         ),
-        body: Container(
-          width: 300,
-          height: 300,
-          color: Colors.redAccent,
-          child: ListView(children: myList),
-        ),
+        body: ArticleListScreen(),
       ),
     );
   }
