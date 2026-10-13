@@ -1,4 +1,4 @@
-import 'package:example/list_grid_singlechild/latihan/ArticleList.dart';
+import 'package:example/routes/app_route.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,17 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter App',
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Hi Teguh!",
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-          backgroundColor: Colors.blue,
-          centerTitle: true,
-        ),
-        body: ArticleListScreen(),
-      ),
+      initialRoute: '/',
+      routes: AppRoute.routes,
     );
   }
 }
