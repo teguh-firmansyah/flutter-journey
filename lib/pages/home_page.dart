@@ -79,6 +79,13 @@ class HomePage extends StatelessWidget {
               },
               child: Text('Masuk Stack'),
             ),
+            Divider(),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/form');
+              },
+              child: Text('Masuk Form'),
+            ),
           ],
         ),
       ),
