@@ -15,8 +15,10 @@ class _FormPageState extends State<FormPage> {
 
   var _outputName = '';
   DateTime? _outputDate;
+  String? _outputGender;
 
   DateTime? _selectedDate;
+  String? _selectedGender;
 
   @override
   void dispose() {
@@ -58,6 +60,7 @@ class _FormPageState extends State<FormPage> {
     setState(() {
       _outputName = _nameController.text;
       _outputDate = _selectedDate;
+      _outputGender = _selectedGender;
     });
     ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text('Data berhasil disimpan')));
@@ -69,6 +72,7 @@ class _FormPageState extends State<FormPage> {
     _nameController.clear();
     _tanggalLahirController.clear();
     _selectedDate = null;
+    _selectedGender = null;
   }
 
   @override
@@ -105,6 +109,7 @@ class _FormPageState extends State<FormPage> {
                 },
               ),
               SizedBox(height: 10),
+
               TextFormField(
                 controller: _tanggalLahirController,
                 readOnly: true,
@@ -134,9 +139,37 @@ class _FormPageState extends State<FormPage> {
                 },
               ),
               SizedBox(height: 10),
+
+              Text(
+                'Jenis Kelamin',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              RadioGroup<String>(
+                groupValue: _selectedGender,
+                onChanged: (value) {
+                  setState(() {
+                    _selectedGender = value;
+                  });
+                },
+                child: Column(
+                  children: [
+                    RadioListTile<String>(
+                      title: const Text('Laki-laki'),
+                      value: 'Laki-laki',
+                    ),
+                    RadioListTile<String>(
+                      title: const Text('Perempuan'),
+                      value: 'Perempuan',
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 10),
+
               OutlinedButton(
                 onPressed: () {
-                  if (_formKey.currentState!.validate()) {
+                  if (_formKey.currentState!.validate() &&
+                      _selectedGender != null) {
                     _submitForm();
                   }
                 },
@@ -144,12 +177,14 @@ class _FormPageState extends State<FormPage> {
                 child: Text("Simpan"),
               ),
               SizedBox(height: 10),
+
               Text(
                 'Username Kamu: ${_outputName.isEmpty ? " -" : _outputName}',
               ),
               Text(
                 'Tanggal Lahir: ${_outputDate == null ? '-' : _formatTanggal(_outputDate!)}',
               ),
+              Text('Jenis Kelamin: ${_outputGender ?? '-'}'),
             ],
           ),
         ),
