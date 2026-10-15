@@ -12,10 +12,12 @@ class _FormPageState extends State<FormPage> {
 
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _tanggalLahirController = TextEditingController();
+  final TextEditingController _alamatController = TextEditingController();
 
   var _outputName = '';
   DateTime? _outputDate;
   String? _outputGender;
+  var _outputAlamat = '';
 
   DateTime? _selectedDate;
   String? _selectedGender;
@@ -25,6 +27,7 @@ class _FormPageState extends State<FormPage> {
     // Menghapus inputan yang sudah di isi
     _nameController.dispose();
     _tanggalLahirController.dispose();
+    _alamatController.dispose();
     // Mengeksekusi method dispose
     super.dispose();
   }
@@ -61,6 +64,7 @@ class _FormPageState extends State<FormPage> {
       _outputName = _nameController.text;
       _outputDate = _selectedDate;
       _outputGender = _selectedGender;
+      _outputAlamat = _alamatController.text;
     });
     ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text('Data berhasil disimpan')));
@@ -73,6 +77,7 @@ class _FormPageState extends State<FormPage> {
     _tanggalLahirController.clear();
     _selectedDate = null;
     _selectedGender = null;
+    _alamatController.clear();
   }
 
   @override
@@ -166,6 +171,28 @@ class _FormPageState extends State<FormPage> {
               ),
               SizedBox(height: 10),
 
+              TextFormField(
+                controller: _alamatController,
+                maxLines: 20,
+                minLines: 3,
+                keyboardType: TextInputType.multiline,
+                textInputAction: TextInputAction.newline,
+                decoration: InputDecoration(
+                  labelText: 'Alamat',
+                  hintText: 'Masukkan alamat lengkap',
+                  alignLabelWithHint: true,
+                  prefixIcon: Icon(Icons.location_on),
+                  border: OutlineInputBorder(),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Alamat tidak boleh kosong';
+                  }
+                  return null;
+                },
+              ),
+              SizedBox(height: 10),
+
               OutlinedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate() &&
@@ -185,6 +212,7 @@ class _FormPageState extends State<FormPage> {
                 'Tanggal Lahir: ${_outputDate == null ? '-' : _formatTanggal(_outputDate!)}',
               ),
               Text('Jenis Kelamin: ${_outputGender ?? '-'}'),
+              Text('Alamat: ${_outputAlamat.isEmpty ? '-' : _outputAlamat}'),
             ],
           ),
         ),
