@@ -18,9 +18,20 @@ class _FormPageState extends State<FormPage> {
   DateTime? _outputDate;
   String? _outputGender;
   var _outputAlamat = '';
+  Set<String> _outputAgama = {};
 
   DateTime? _selectedDate;
   String? _selectedGender;
+  Set<String> _selectedAgama = {};
+
+  final List<String> daftarAgama = [
+    'Islam',
+    'Kristen Protestan',
+    'Katolik',
+    'Hindu',
+    'Buddha',
+    'Konghucu',
+  ];
 
   @override
   void dispose() {
@@ -59,12 +70,23 @@ class _FormPageState extends State<FormPage> {
     return '$hari/$bulan/$tahun';
   }
 
+  void _toggleAgama(String agama, bool? value) {
+    setState(() {
+      if (value == true) {
+        _selectedAgama.add(agama);
+      } else {
+        _selectedAgama.remove(agama);
+      }
+    });
+  }
+
   void _submitForm() {
     setState(() {
       _outputName = _nameController.text;
       _outputDate = _selectedDate;
       _outputGender = _selectedGender;
       _outputAlamat = _alamatController.text;
+      _outputAgama = Set.from(_selectedAgama);
     });
     ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text('Data berhasil disimpan')));
@@ -78,6 +100,7 @@ class _FormPageState extends State<FormPage> {
     _selectedDate = null;
     _selectedGender = null;
     _alamatController.clear();
+    _selectedAgama.clear();
   }
 
   @override
@@ -193,6 +216,24 @@ class _FormPageState extends State<FormPage> {
               ),
               SizedBox(height: 10),
 
+              Text(
+                'Agama',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              Column(
+                children: daftarAgama.map((agama) {
+                  return CheckboxListTile(
+                    title: Text(agama),
+                    value: _selectedAgama.contains(agama),
+                    onChanged: (value) {
+                      _toggleAgama(agama, value);
+                    },
+                    controlAffinity: ListTileControlAffinity.leading,
+                    contentPadding: EdgeInsets.zero,
+                  );
+                }).toList(),
+              ),
+
               OutlinedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate() &&
@@ -213,6 +254,9 @@ class _FormPageState extends State<FormPage> {
               ),
               Text('Jenis Kelamin: ${_outputGender ?? '-'}'),
               Text('Alamat: ${_outputAlamat.isEmpty ? '-' : _outputAlamat}'),
+              Text(
+                'Agama: ${_outputAgama.isEmpty ? '-' : _outputAgama.join(', ')}',
+              ),
             ],
           ),
         ),
