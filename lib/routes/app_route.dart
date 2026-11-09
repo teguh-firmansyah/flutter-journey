@@ -7,10 +7,12 @@ import 'package:example/list_grid_singlechild/list_view/ListView.dart';
 import 'package:example/list_grid_singlechild/singlechild_scroll/SingleChildSrollWidget.dart';
 import 'package:example/pages/about_page.dart';
 import 'package:example/pages/form_page.dart';
+import 'package:example/pages/formulir_page.dart';
 import 'package:example/pages/home_page.dart';
 import 'package:example/row_column/ColumnWidget.dart';
 import 'package:example/row_column/RowWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:example/pages/input_page.dart';
 
 class AppRoute {
   static const home = '/';
@@ -25,6 +27,8 @@ class AppRoute {
   static const sized = '/sized';
   static const stack = '/stack';
   static const form = '/form';
+  static const input = '/input-page';
+  static const formulir = '/formulir';
 
   static Map<String, WidgetBuilder> routes = {
     home: (context) => HomePage(),
@@ -39,5 +43,7 @@ class AppRoute {
     sized: (context) => SizedWidget(),
     stack: (context) => StackWidget(),
     form: (context) => FormPage(),
+    input: (context) => BelajarForm(),
+    formulir: (context) => FormulirPage(),
   };
 }

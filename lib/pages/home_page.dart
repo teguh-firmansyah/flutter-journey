@@ -16,75 +16,89 @@ class HomePage extends StatelessWidget {
               },
               child: Text('Masuk Profile'),
             ),
-            Divider(),
+            SizedBox(height: 5),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/list-basic');
               },
               child: Text('Masuk List'),
             ),
-            Divider(),
+            SizedBox(height: 5),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/container');
               },
               child: Text('Masuk Container'),
             ),
-            Divider(),
+            SizedBox(height: 5),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/grid-basic');
               },
               child: Text('Masuk Grid'),
             ),
-            Divider(),
+            SizedBox(height: 5),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/single-child');
               },
               child: Text('Masuk Single Child'),
             ),
-            Divider(),
+            SizedBox(height: 5),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/column');
               },
               child: Text('Masuk Column'),
             ),
-            Divider(),
+            SizedBox(height: 5),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/row');
               },
               child: Text('Masuk Row'),
             ),
-            Divider(),
+            SizedBox(height: 5),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/expanded');
               },
               child: Text('Masuk Expanded'),
             ),
-            Divider(),
+            SizedBox(height: 5),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/sized');
               },
               child: Text('Masuk Sized'),
             ),
-            Divider(),
+            SizedBox(height: 5),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/stack');
               },
               child: Text('Masuk Stack'),
             ),
-            Divider(),
+            SizedBox(height: 5),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/form');
               },
               child: Text('Masuk Form'),
+            ),
+            SizedBox(height: 5),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/input-page');
+              },
+              child: Text('Masuk Input'),
+            ),
+            SizedBox(height: 5),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/formulir');
+              },
+              child: Text('Masuk Formulir'),
             ),
           ],
         ),
