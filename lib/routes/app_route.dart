@@ -6,6 +6,7 @@ import 'package:example/list_grid_singlechild/grid_view/GridView.dart';
 import 'package:example/list_grid_singlechild/list_view/ListView.dart';
 import 'package:example/list_grid_singlechild/singlechild_scroll/SingleChildSrollWidget.dart';
 import 'package:example/pages/about_page.dart';
+import 'package:example/pages/fetch_api_page.dart';
 import 'package:example/pages/form_page.dart';
 import 'package:example/pages/formulir_page.dart';
 import 'package:example/pages/home_page.dart';
@@ -29,6 +30,7 @@ class AppRoute {
   static const form = '/form';
   static const input = '/input-page';
   static const formulir = '/formulir';
+  static const album = '/album';
 
   static Map<String, WidgetBuilder> routes = {
     home: (context) => HomePage(),
@@ -45,5 +47,6 @@ class AppRoute {
     form: (context) => FormPage(),
     input: (context) => BelajarForm(),
     formulir: (context) => FormulirPage(),
+    album: (context) => AlbumPage(),
   };
 }

@@ -106,6 +106,13 @@ class HomePage extends StatelessWidget {
               routeName: '/formulir',
               color: Colors.red,
             ),
+            _buildMenuCard(
+              context,
+              title: 'Album',
+              icon: Icons.album,
+              routeName: '/album',
+              color: Colors.black,
+            ),
           ],
         ),
       ),
