@@ -6,101 +6,144 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Home Page')),
-      body: Center(
-        child: Column(
+      appBar: AppBar(title: const Text('Home Page'), centerTitle: true),
+      body: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: GridView.count(
+          crossAxisCount: 2,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          childAspectRatio: 1.5,
           children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/about');
-              },
-              child: Text('Masuk Profile'),
+            _buildMenuCard(
+              context,
+              title: 'Profile',
+              icon: Icons.person,
+              routeName: '/about',
+              color: Colors.blue,
             ),
-            SizedBox(height: 5),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/list-basic');
-              },
-              child: Text('Masuk List'),
+            _buildMenuCard(
+              context,
+              title: 'List',
+              icon: Icons.list,
+              routeName: '/list-basic',
+              color: Colors.orange,
             ),
-            SizedBox(height: 5),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/container');
-              },
-              child: Text('Masuk Container'),
+            _buildMenuCard(
+              context,
+              title: 'Container',
+              icon: Icons.crop_square,
+              routeName: '/container',
+              color: Colors.purple,
             ),
-            SizedBox(height: 5),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/grid-basic');
-              },
-              child: Text('Masuk Grid'),
+            _buildMenuCard(
+              context,
+              title: 'Grid',
+              icon: Icons.grid_view,
+              routeName: '/grid-basic',
+              color: Colors.green,
             ),
-            SizedBox(height: 5),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/single-child');
-              },
-              child: Text('Masuk Single Child'),
+            _buildMenuCard(
+              context,
+              title: 'Single Child',
+              icon: Icons.filter_1,
+              routeName: '/single-child',
+              color: Colors.teal,
             ),
-            SizedBox(height: 5),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/column');
-              },
-              child: Text('Masuk Column'),
+            _buildMenuCard(
+              context,
+              title: 'Column',
+              icon: Icons.view_column,
+              routeName: '/column',
+              color: Colors.indigo,
             ),
-            SizedBox(height: 5),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/row');
-              },
-              child: Text('Masuk Row'),
+            _buildMenuCard(
+              context,
+              title: 'Row',
+              icon: Icons.view_stream,
+              routeName: '/row',
+              color: Colors.amber,
             ),
-            SizedBox(height: 5),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/expanded');
-              },
-              child: Text('Masuk Expanded'),
+            _buildMenuCard(
+              context,
+              title: 'Expanded',
+              icon: Icons.open_in_full,
+              routeName: '/expanded',
+              color: Colors.deepOrange,
             ),
-            SizedBox(height: 5),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/sized');
-              },
-              child: Text('Masuk Sized'),
+            _buildMenuCard(
+              context,
+              title: 'Sized Box',
+              icon: Icons.aspect_ratio,
+              routeName: '/sized',
+              color: Colors.brown,
             ),
-            SizedBox(height: 5),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/stack');
-              },
-              child: Text('Masuk Stack'),
+            _buildMenuCard(
+              context,
+              title: 'Stack',
+              icon: Icons.layers,
+              routeName: '/stack',
+              color: Colors.pink,
             ),
-            SizedBox(height: 5),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/form');
-              },
-              child: Text('Masuk Form'),
+            _buildMenuCard(
+              context,
+              title: 'Form',
+              icon: Icons.edit_note,
+              routeName: '/form',
+              color: Colors.cyan,
             ),
-            SizedBox(height: 5),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/input-page');
-              },
-              child: Text('Masuk Input'),
+            _buildMenuCard(
+              context,
+              title: 'Input',
+              icon: Icons.input,
+              routeName: '/input-page',
+              color: Colors.deepPurple,
             ),
-            SizedBox(height: 5),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/formulir');
-              },
-              child: Text('Masuk Formulir'),
+            _buildMenuCard(
+              context,
+              title: 'Formulir',
+              icon: Icons.assignment,
+              routeName: '/formulir',
+              color: Colors.red,
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMenuCard(
+    BuildContext context, {
+    required String title,
+    required IconData icon,
+    required String routeName,
+    required Color color,
+  }) {
+    return Card(
+      elevation: 3,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: InkWell(
+        onTap: () {
+          Navigator.pushNamed(context, routeName);
+        },
+        borderRadius: BorderRadius.circular(12),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(icon, size: 36, color: color),
+              const SizedBox(height: 8),
+              Text(
+                title,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
