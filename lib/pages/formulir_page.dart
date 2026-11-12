@@ -142,7 +142,7 @@ class _FormulirPageState extends State<FormulirPage> {
                             labelText: "Pilih Kelas",
                             border: OutlineInputBorder(),
                           ),
-                          value: _pilihKelas,
+                          initialValue: _pilihKelas,
                           items: listKelas
                               .map(
                                 (item) => DropdownMenuItem(
@@ -193,7 +193,7 @@ class _FormulirPageState extends State<FormulirPage> {
                                   }
                                 } else {
                                   selectedEskul.remove(eskul);
-                                  if (selectedEskul.length >= 1) {
+                                  if (selectedEskul.isNotEmpty) {
                                     _eskulError = null;
                                   }
                                 }
@@ -258,6 +258,7 @@ class _FormulirPageState extends State<FormulirPage> {
                                 side: const BorderSide(color: Colors.black),
                               ),
                             ),
+                            onPressed: _submit,
                             child: const Text(
                               "Simpan",
                               style: TextStyle(
@@ -265,7 +266,6 @@ class _FormulirPageState extends State<FormulirPage> {
                                 fontSize: 16,
                               ),
                             ),
-                            onPressed: _submit,
                           ),
                         ),
                       ],
