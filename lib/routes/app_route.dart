@@ -8,6 +8,8 @@ import 'package:example/list_grid_singlechild/singlechild_scroll/SingleChildSrol
 import 'package:example/pages/about_page.dart';
 import 'package:example/pages/api/comments_page.dart';
 import 'package:example/pages/api/post_page.dart';
+import 'package:example/pages/api_laravel/login_page.dart';
+import 'package:example/pages/api_laravel/register_page.dart';
 import 'package:example/pages/fetch_api_page.dart';
 import 'package:example/pages/form_page.dart';
 import 'package:example/pages/formulir_page.dart';
@@ -35,6 +37,8 @@ class AppRoute {
   static const album = '/album';
   static const fetch = '/fetch';
   static const comment = '/comment';
+  static const login = '/login';
+  static const register = '/register';
 
   static Map<String, WidgetBuilder> routes = {
     home: (context) => HomePage(),
@@ -54,5 +58,7 @@ class AppRoute {
     album: (context) => AlbumPage(),
     fetch: (context) => PostPage(),
     comment: (context) => CommentsPage(),
+    login: (context) => LoginPage(),
+    register: (context) => RegisterPage(),
   };
 }
